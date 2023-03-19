@@ -15,11 +15,6 @@ module.exports = {
     static: {
         directory: path.join(__dirname, "dist"),
       },
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-      },
     port: 3000, // you can change the port
   },
   module: {

@@ -10,11 +10,19 @@
     },
     {
         "name" : "Fabhotel Pallavi New",
-        "address" : "Delhi Station, Delhi, Inida"
+        "address" : "Delhi Station, Delhi, India"
     },
     {
         "name" : "Old Fabhotel",
-        "address" : "Delhi Station, Delhi, Inida"
+        "address" : "Delhi Station, Delhi, India"
+    },
+    {
+        "name" : "Abc Fabhotel ",
+        "address" : "Gurgaon , Harayana, India"
+    },
+    {
+        "name" : "Fabhotel 5",
+        "address" : "Delhi Station, Delhi, India"
     }
    ]
 }

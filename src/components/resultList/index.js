@@ -1,11 +1,10 @@
 import React from "react";
-import ListItem from "../listItem/listItem";
-import './resultList.css';
+import ListItem from "../listItem";
 
 const ResultList = ({ resultType, dataList, icon }) => {
   return <>
     <h3>{resultType}</h3>
-    <ul>
+    <ul className="resultlist">
       {dataList?.map((item, index) =>
         <ListItem
           key={index}

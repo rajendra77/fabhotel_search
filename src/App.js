@@ -1,13 +1,18 @@
 import React from "react";
 import axios from 'axios'
-import ResultList from "./components/resultList/resultList";
 import { useDispatch, useSelector } from "react-redux";
-import SearchBox from "./components/searchBox/searchBox";
+import SearchBox from "./components/searchBox";
+import ResultList from "./components/resultList";
 import hotelDataJson from './constant/hotelData.json';
 import { GoLocation } from "react-icons/go";
 import { RiHotelLine } from 'react-icons/ri'
-import { updateSearchKeyword, updateSuggestedHotels, updateSuggestedPlaces } from "./store/action/action";
-import { debounce } from "./utils/debounce";
+import {
+  updateSearchKeyword,
+  updateSuggestedHotels,
+  updateSuggestedPlaces
+} from "./store/action/action";
+
+let timer
 
 const App = () => {
 
@@ -16,19 +21,28 @@ const App = () => {
   const suggestedHotels = useSelector(state => state.suggestedHotels)
   const searchKeyword = useSelector(state => state.searchKeyword)
 
+
   const handleInputChange = (e) => {
     const value = e.target.value
     dispatch(updateSearchKeyword(value))
     if (value === '') {
       dispatch(updateSuggestedPlaces([]))
       dispatch(updateSuggestedHotels([]))
-    } else{
-      debounce(getLocation, 200)
+    } else {
+      debounce(value)
     }
   }
 
-  const getLocation = () => {
-    const apiUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchKeyword}&types=establishment&key=AIzaSyAEuBrth5voXhBLr5v2prYhZPB_rZZRq2I`
+  const debounce = (value) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      getLocation(value)
+    }, 200)
+  }
+
+  const getLocation = (keyword) => {
+    const corsUrl = 'https://cors-anywhere.herokuapp.com/'
+    const apiUrl = `${corsUrl}https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${keyword}&types=establishment&key=AIzaSyAEuBrth5voXhBLr5v2prYhZPB_rZZRq2I`
     axios(apiUrl)
       .then(res => {
         const predictions = res.data.predictions
@@ -60,14 +74,17 @@ const App = () => {
   return (
     <div className="container">
       <h1>FABHOTEL AUTOCOMPLETE</h1>
+
       <SearchBox
         value={searchKeyword}
         handleInputChange={handleInputChange} />
+
       {suggestedPlaces?.length > 0 &&
         <ResultList
           resultType="Locations"
           dataList={suggestedPlaces}
           icon={<GoLocation />} />}
+
       {suggestedHotels?.length > 0 &&
         <ResultList
           resultType="Hotels"
