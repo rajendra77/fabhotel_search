@@ -73,7 +73,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>FABHOTEL AUTOCOMPLETE</h1>
+      <h1>FABHOTEL AUTOSUGGEST</h1>
 
       <SearchBox
         value={searchKeyword}
