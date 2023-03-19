@@ -1,0 +1,20 @@
+{
+   "hotelData" : [
+    {
+        "name" : "Fabhotel",
+        "address" : "New Delhi, Delhi, India"
+    },
+    {
+        "name" : "Fabhotel New",
+        "address" : "Noida, Uttar Pradesh, India"
+    },
+    {
+        "name" : "Fabhotel Pallavi New",
+        "address" : "Delhi Station, Delhi, Inida"
+    },
+    {
+        "name" : "Old Fabhotel",
+        "address" : "Delhi Station, Delhi, Inida"
+    }
+   ]
+}
