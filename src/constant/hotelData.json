@@ -1,7 +1,11 @@
 {
    "hotelData" : [
     {
-        "name" : "Fabhotel",
+        "name" : "Fabhotel 1",
+        "address" : "New Delhi, Delhi, India"
+    },
+    {
+        "name" : "Fabhotel 2",
         "address" : "New Delhi, Delhi, India"
     },
     {

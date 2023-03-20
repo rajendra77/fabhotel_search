@@ -66,7 +66,7 @@ const App = () => {
     let array = hotelDataJson.hotelData
     const filteredSuggestions = array.filter(
       suggestion =>
-        suggestion['name'].toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
+        suggestion['address'].toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
     );
     dispatch(updateSuggestedHotels(filteredSuggestions))
   }
