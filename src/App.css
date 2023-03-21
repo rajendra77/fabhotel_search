@@ -1,12 +1,14 @@
 h1 {
-    color: gray;
-    text-align: center;
+  color: gray;
+  text-align: center;
 }
-.container{
+
+.container {
   width: 50%;
   margin: auto;
-  
+
 }
+
 .searchbox {
   display: flex;
 }
@@ -21,34 +23,75 @@ h1 {
   border-bottom-style: groove;
 }
 
+
+
 input:focus {
   outline: none;
 }
-.listItem{
+
+.listItem {
   display: flex;
   align-items: center;
   list-style: none;
   cursor: pointer;
   border-bottom: 1px solid #80808059;
 }
-.listItem:hover{
+
+.listItem:hover {
   background-color: darkgray;
 }
-.listItem h4{
+
+.listItem h4 {
   padding-left: 3px;
 }
 
-.listItem p{
+.listItem p {
   padding-left: 3px;
 }
 
-.resultlist{
+/* .resultlistcontainer{
+  margin-top: 25%;
+
+} */
+.resultlist {
   background-color: lightgray;
   padding-top: 17px;
+}
+
+input {
+  font-size: 20px;
+  padding: 12px;
+  width: 100%;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+}
+
+.pac-container {
+  background-color: gray;
+}
+
+.pac-item,
+.pac-item-query {
+  color: black;
+}
+
+.pac-item:hover {
+  background: #6666;
+}
+
+.main>h2 {
+  margin: 10% 30%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 600px) {
   .container {
     width: 90%;
-}
+  }
 }
