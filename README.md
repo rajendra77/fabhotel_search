@@ -6,7 +6,7 @@
 
 `$ npm run dev`
 
-##### Check functionality -  Search any city keyword and when hotel list appears click on any hotel name
+##### Check functionality -  Search any city keyword and when hotel list appears click on any hotel name item
 
 
 
