@@ -1,7 +1,7 @@
 import React, {  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ResultList from "../components/ui/resultList";
-import hotelDataJson from '../constant/hotelData.json';
+import hotelData from '../constant/hotelData';
 import {
   updateSearchKeyword,
   updateSuggestedHotels,
@@ -35,7 +35,7 @@ const Home = () => {
   }
 
   const handleFilterSuggestedHotels = () => {
-    let array = hotelDataJson.hotelData
+    let array = hotelData
     const filteredSuggestions = array.filter(
       suggestion =>
         suggestion['address'].toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1

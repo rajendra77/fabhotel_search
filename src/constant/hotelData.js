@@ -1,5 +1,5 @@
-{
-   "hotelData" : [
+
+export const hotelData = [
     {
         "name" : "FabExpress Ipotel",
         "address" : "Shahdara, New Delhi, India",
@@ -44,4 +44,3 @@
         "slug" : "fabhotel-gr-lake-view"
     }
    ]
-}

@@ -1,10 +1,10 @@
 import React, {  } from 'react'
-import hotelDataJson from '../constant/hotelData.json'
+import hotelData from '../constant/hotelData'
 import hotel from "./hotel.css"
 
 const HotelDetails = ({slug}) => {
 
-        const hotelObj = hotelDataJson.hotelData.find(item => item.slug ===slug)
+        const hotelObj = hotelData.find(item => item.slug ===slug)
 
         return (
             <div className='hotelDetail'>
