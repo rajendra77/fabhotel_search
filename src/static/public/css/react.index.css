@@ -1,0 +1,100 @@
+ .heading{
+    font-size: 12px;
+} 
+
+h1 {
+    color: gray;
+    text-align: center;
+  }
+  
+  .container {
+    width: 50%;
+    margin: auto;
+  
+  }
+  
+  .searchbox {
+    display: flex;
+  }
+  
+  .searchbox input {
+    font-size: 20px;
+    padding: 12px;
+    width: 100%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+  }
+  
+  
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .listItem {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    color : rgba(0, 0, 0, 0.818);
+    border-bottom: 1px solid #e3dcdc59;
+  }
+  
+  .listItem:hover {
+    background-color: #c2bcbc;
+  }
+  
+  .listItem h4 {
+    padding-left: 3px;
+  }
+  
+  .listItem p {
+    padding-left: 3px;
+  }
+  
+  .resultlist {
+    background-color: #8c8888;
+    padding-top: 17px;
+  }
+  
+  input {
+    font-size: 20px;
+    padding: 12px;
+    width: 100%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+  }
+  
+  .pac-container {
+    background-color: gray;
+  }
+  
+  .pac-item,
+  .pac-item-query {
+    color: black;
+  }
+  
+  .pac-item:hover {
+    background: #6666;
+  }
+  
+  .main>h2 {
+    margin: 10% 30%;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  
+  @media only screen and (max-width: 600px) {
+    .container {
+      width: 90%;
+    }
+  }

@@ -1,32 +1,47 @@
 {
    "hotelData" : [
     {
-        "name" : "Fabhotel 1",
-        "address" : "New Delhi, Delhi, India"
+        "name" : "FabExpress Ipotel",
+        "address" : "Shahdara, New Delhi, India",
+        "price" : "₹1,080",
+        "slug" : "fabexpress-ipotel"
     },
     {
-        "name" : "Fabhotel 2",
-        "address" : "New Delhi, Delhi, India"
+        "name" : "FabHotel Llyod Residency",
+        "address" : "Kalkaji, New Delhi, India",
+        "price" : "₹2,080",
+        "slug" : "fabhotel-llyod-residency"
+
     },
     {
-        "name" : "Fabhotel New",
-        "address" : "Noida, Uttar Pradesh, India"
+        "name" : "FabExpress Roseman",
+        "address" : "Pitampura, New Delhi, India",
+        "price" : "₹1,020",
+        "slug" : "fabexpress-roseman"
     },
     {
-        "name" : "Fabhotel Pallavi New",
-        "address" : "Delhi Station, Delhi, India"
+        "name" : "FabExpress Sri Sai Suites",
+        "address" : "Bilekahalli, Bangalore, India",
+        "price" : "₹1,900",
+        "slug" : "fabexpress-sri-sri-suites"
     },
     {
-        "name" : "Old Fabhotel",
-        "address" : "Delhi Station, Delhi, India"
+        "name" : "FabHotel Amazing Inn",
+        "address" : "Koramangala, Bangalore, India",
+        "price" : "₹1,900",
+        "slug" : "fabhotel-amazing-inn"
     },
     {
-        "name" : "Abc Fabhotel ",
-        "address" : "Gurgaon , Harayana, India"
+        "name" : "FabHotel Krishna Boutique",
+        "address" : "Marathahalli, Bangalore, India",
+        "price" : "₹2,800",
+        "slug" : "fabhotel-krishan-boutique"
     },
     {
-        "name" : "Fabhotel 5",
-        "address" : "Delhi Station, Delhi, India"
+        "name" : "FabHotel GR Lake View",
+        "address" : "BTM Layout, Bangalore, India",
+        "price" : "₹1,361",
+        "slug" : "fabhotel-gr-lake-view"
     }
    ]
 }

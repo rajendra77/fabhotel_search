@@ -1,20 +1,12 @@
-# fabhotel_search
+# FabHotel Search
 
-#  Steps to run project
-npm install
-npm run serve
+##### Commands to run on local
 
-# Steps to run unit tests
-npm run test
+`$ npm run webpack`
 
-# Search keywords exampls
+`$ npm run dev`
 
-n
-ne
-new 
-new d
-....
+##### Check functionality -  Search any city keyword and when hotel list appears click on any hotel name
 
-no
-noida
+
 

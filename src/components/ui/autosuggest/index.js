@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import React from 'react'
 import { useDispatch } from "react-redux";
-import { updateSuggestedHotels } from "../../store/action/action";
+import { updateSuggestedHotels } from "../../../store/action/action";
 
 const AutoComplete = ({handleChange}) => {
     

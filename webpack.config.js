@@ -1,40 +1,102 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const production = process.env.NODE_ENV === 'production'
 
-module.exports = {
-  output: {
-    path: path.join(__dirname, "/dist"), // the bundle output path
-    filename: "bundle.js", // the name of the bundle
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "src/index.html", // to import index.html file inside index.js
-    }),
-  ],
-  devServer: {
-    static: {
-        directory: path.join(__dirname, "dist"),
-      },
-    port: 3000, // you can change the port
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/, // .js and .jsx files
-        exclude: /node_modules/, // excluding the node_modules folder
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.(sa|sc|c)ss$/, // styles files
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-        loader: "url-loader",
-        options: { limit: false },
-      },
-    ],
-  },
-};
+const pages = ['index', 'hotel']
+
+const generateEntryPoints = (entry) => {
+    return entry.reduce((obj, item) => {
+        return {
+            ...obj,
+            [item]: [path.resolve('src', 'components', 'entrypoints', `${item}.jsx`)]
+        }
+    }, {})
+}
+
+const generateHtml = (entry) => {
+    return entry.map((i) => {
+        return new HtmlWebpackPlugin({
+            chunks: [i],
+            filename: `../views/pages/${i}.ejs`,
+            template: path.join('src', 'views', 'pages', 'template.ejs')
+        })
+
+    })
+}
+
+const config = [{
+    entry: {
+        ...generateEntryPoints(pages)
+    },
+
+    output: {
+        path: production ? path.resolve(__dirname, 'dist', 'static', 'public') : path.resolve(__dirname, 'src', 'static', 'public'),
+        filename: production ? 'js/[chunkhash].js' : 'js/[name].js',
+        publicPath: '/public'
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                    }
+                },
+                exclude: [/node_modules/, /static/]
+            }, {
+                test: /\.ejs$/,
+                loader: 'raw-loader'
+            }, {
+                test: /\.(css)$/,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '/public/css'
+                    }
+
+                }, 'css-loader']
+            }, {
+                test: /\.(jpg|jpeg|png|svg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[md5:hash:hex].[ext]',
+                        publicPath: '/public/img',
+                        outputPath: 'img',
+                    }
+                }]
+            }
+        ]
+    },
+
+    resolve: {
+        extensions: ['.js', '.jsx', '.json', '.wasm', '.mjs', '*']
+    },
+
+    optimization: {
+        splitChunks: {
+            automaticNameDelimiter: '.',
+            cacheGroups: {
+                react: {
+                    chunks: 'initial',
+                }
+            }
+        }
+    },
+
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: production ? 'css/[contentHash].css' : 'css/[id].css',
+            chunkFilename: production ? 'css/[contentHash].css' : 'css/[id].css'
+        }),
+        ...generateHtml(pages)
+    ]
+}]
+
+module.exports = config

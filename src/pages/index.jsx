@@ -1,22 +1,21 @@
-import React, { } from "react";
+import React, {  } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ResultList from "./components/resultList";
-import hotelDataJson from './constant/hotelData.json';
-import { RiHotelLine } from 'react-icons/ri'
+import ResultList from "../components/ui/resultList";
+import hotelDataJson from '../constant/hotelData.json';
 import {
   updateSearchKeyword,
   updateSuggestedHotels,
-} from "./store/action/action";
-import AutoComplete from "./components/autosuggest";
+} from "../store/action/action";
+import AutoComplete from '../components/ui/autosuggest'
+import home from "./index.css"
 
 let timer
 
-const App = () => {
+const Home = () => {
 
   const dispatch = useDispatch()
   const suggestedHotels = useSelector(state => state.suggestedHotels)
   const searchKeyword = useSelector(state => state.searchKeyword)
-
 
   const handleInputChange = (e) => {
     const value = e.target.value
@@ -60,19 +59,15 @@ const App = () => {
           handleSelect={handleSelect} />
         <h2> Please search for any city</h2>
         <div>
-          {suggestedHotels?.length > 0 &&
-            <ResultList
-              resultType="Hotels"
-              dataList={suggestedHotels}
-              icon={<RiHotelLine />} />}
+          {suggestedHotels?.length>0 && <ResultList
+            resultType="Hotels"
+            dataList={suggestedHotels}
+            />}
         </div>
-
       </div>
-
-
     </div>
   )
 
 };
 
-export default App;
+export default Home;
