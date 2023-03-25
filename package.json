@@ -6,8 +6,8 @@
   "scripts": {
     "webpack": "webpack -d",
     "dev": "nodemon --exec 'npm run webpack &&  COMPILER_ENV=server babel-node src/server.js'",
-    "webpack-production": "NODE_ENV=production webpack -p",
-    "babel-production": "NODE_ENV=production COMPILER_ENV=server babel --out-dir dist src",
+    "webpack-production": "webpack --mode production",
+    "babel-production": "nodemon --exec 'npm run webpack &&  COMPILER_ENV=server babel-node src/server.js' --mode production",
     "start": "node dist/server.js",
     "build": "npm run webpack-production && npm run babel-production"
   },
