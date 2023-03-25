@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/hotel/:slug', async (req, res) => {
-    console.log("req", req)
     const reactComp = renderToString(<HotelDetails slug={req.params.slug}/>);
     res.status(200).render('pages/hotel', { reactApp: reactComp });
 });
