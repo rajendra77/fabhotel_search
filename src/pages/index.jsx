@@ -1,7 +1,7 @@
 import React, {  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ResultList from "../components/ui/resultList";
-import hotelData from '../constant/hotelData';
+import {hotelData} from '../constant/hotelData';
 import {
   updateSearchKeyword,
   updateSuggestedHotels,

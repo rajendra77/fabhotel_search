@@ -1,5 +1,5 @@
 import React, {  } from 'react'
-import hotelData from '../constant/hotelData'
+import {hotelData} from '../constant/hotelData'
 import hotel from "./hotel.css"
 
 const HotelDetails = ({slug}) => {
