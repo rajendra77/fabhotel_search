@@ -35,7 +35,6 @@ const config = [{
         path: production ? path.resolve(__dirname, 'dist', 'static', 'public') : path.resolve(__dirname, 'src', 'static', 'public'),
         filename: production ? 'js/[chunkhash].js' : 'js/[name].js',
         publicPath: '/public',
-        sourceMapFilename: production ? 'js/[chunkhash].js' : 'js/[name].js',
     },
 
     module: {
