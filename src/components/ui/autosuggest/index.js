@@ -17,18 +17,34 @@ const AutoComplete = ({handleChange}) => {
    
   
  useEffect(() => {
-  autoCompleteRef.current = new window.google.maps.places.Autocomplete(
-   inputRef.current,
-   options
-  );
+  if (!window.google) {
+     var s = document.createElement('script');
+     s.type = 'text/javascript';
+     s.src = `https://maps.google.com/maps/api/js?key=AIzaSyAEuBrth5voXhBLr5v2prYhZPB_rZZRq2I`;
+     var x = document.getElementsByTagName('script')[0];
+     x.parentNode.insertBefore(s, x);
+     s.addEventListener('load', e => {
+       this.onScriptLoad()
+     })
+   } else {
+     onScriptLoad()
+   }
 
-  autoCompleteRef.current.addListener("place_changed", async function () {
-
-   const place = await autoCompleteRef.current.getPlace();
-   console.log({place})
-   dispatch(updateSuggestedHotels([]))
-  });
  }, []);
+
+ const onScriptLoad =() =>{
+     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+          inputRef.current,
+          options
+         );
+       
+         autoCompleteRef.current.addListener("place_changed", async function () {
+       
+          const place = await autoCompleteRef.current.getPlace();
+          console.log({place})
+          dispatch(updateSuggestedHotels([]))
+         });
+ }
 
  return (
   <div className="searchbox">

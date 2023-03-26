@@ -23,23 +23,24 @@ const Home = () => {
     if (value === '') {
       dispatch(updateSuggestedHotels([]))
     } else {
-      debounce()
+      debounce(value)
     }
   }
 
-  const debounce = () => {
+  const debounce = (value) => {
     clearTimeout(timer)
     timer = setTimeout(() => {
-      handleFilterSuggestedHotels()
+      handleFilterSuggestedHotels(value)
     }, 300)
   }
 
-  const handleFilterSuggestedHotels = () => {
+  const handleFilterSuggestedHotels = (value) => {
     let array = hotelData
     const filteredSuggestions = array.filter(
       suggestion =>
-        suggestion['address'].toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
+        suggestion['address'].toLowerCase().indexOf(value.toLowerCase()) > -1
     );
+    console.log("filteredSuggestions", filteredSuggestions)
     dispatch(updateSuggestedHotels(filteredSuggestions))
   }
 

@@ -18,6 +18,7 @@
   "author": "raj",
   "license": "MIT",
   "nodemonConfig": {
+
     "ignore": [
       "src/static/**/*"
     ]
