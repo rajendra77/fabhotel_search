@@ -59,7 +59,7 @@ const Home = () => {
           handleSelect={handleSelect} />
         <h2> Please search for any city</h2>
         <div>
-          {suggestedHotels?.length>0 && <ResultList
+          {searchKeyword && suggestedHotels?.length>0 && <ResultList
             resultType="Hotels"
             dataList={suggestedHotels}
             />}

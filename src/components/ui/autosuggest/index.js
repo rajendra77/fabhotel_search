@@ -7,7 +7,7 @@ const AutoComplete = ({handleChange}) => {
     
  const autoCompleteRef = useRef();
  const inputRef = useRef();
- const dispatch = useDispatch()
+ const dispatch = useDispatch();
 
  const options = {
     componentRestrictions: { country: "IN" },
